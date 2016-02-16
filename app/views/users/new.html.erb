@@ -1,0 +1,11 @@
+<%= form_for @user, url: users_path, method: :post  do |f|%>
+	<%= f.label "Username: " %>
+	<%= f.text_field :username %><br>
+	<%= f.label "Password" %>
+	<%= f.password_field :password_digest %><br>
+	<%= f.label "Email" %>
+	<%= f. text_field :email %><br>
+	<%= f.label "Show email?"%>
+	<%= f.check_box :show_email %><br>
+	<%= f.submit "Sign up" %>
+<% end %>
