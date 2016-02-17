@@ -1,0 +1,10 @@
+<h1><%=@post.title%></h1>
+<p><%=@post.body %></p>
+<p>By <%= link_to @post.user.username, user_path(@post.user.id)%></p>
+
+<p>Created at <%= @pst_created_at.strftime("%m/%d/%Y %l:%M %P PST")%></p>
+<p>Last updated on <%= @pst_updated_at.strftime("%m/%d/%Y %l:%M %P PST")%></p>
+<% if @current_user && @current_user.id == @post.user.id %>
+	<%= link_to "Edit", edit_post_path(@post.id) %>
+	<%= link_to "Delete Post", post_path(@post.id), method: :delete %>
+<% end %>

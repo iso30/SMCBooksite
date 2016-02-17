@@ -1,0 +1,13 @@
+<h1>Create a Post</h1>
+<p><%= flash[:danger] %></p>
+<% if @current_user %>
+	<%= form_for @post, url: posts_path, method: :post  do |f|%>
+		<%=f.text_field :title, :placeholder => "Enter a Title" %>
+		<%=f.text_area :body, :placeholder => "Enter your post" %>
+		<%=f.hidden_field :user_id, :value => @current_user.id %>
+		<%=f.submit "Submit Post" %>
+	<% end %>
+<% else %>
+	<p>You are not logged in click the link to log in</p>
+	<p><%= link_to "login", login_path %></p>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Recent Posts</h1>
+<%= link_to "Create a post", new_post_path %>
+<% @posts.each do |post| %>
+	<h1><%=link_to post.title, post_path(post.id)%></h1>
+	<p><%=post.body %></p>
+	<p>By <%= link_to post.user.username, user_path(post.user.id)%></p>
+<% end %>
+

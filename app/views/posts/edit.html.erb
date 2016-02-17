@@ -1,0 +1,8 @@
+<h1>Edit your post</h1>
+<p><%= flash[:danger]%></p>
+<%= form_for @post, url: post_path, method: :patch do |f| %>
+	<%=f.text_field :title, :placeholder => "Enter a Title", :value => @post.title %>
+	<%=f.text_area :body, :placeholder => "Enter your post", :value => @post.body %>
+	<%=f.submit "Submit Post" %>
+<% end %>
+

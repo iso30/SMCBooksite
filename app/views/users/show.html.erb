@@ -1,2 +1,5 @@
 <p>Hello <%= @user.username %>!</p>
 <p>email<%= @user.email %></p>
+<% @user_posts.each do |post| %>
+	<p><%= link_to post.title, post_path(post.id)%></p>
+<% end %>
