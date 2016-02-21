@@ -1,0 +1,6 @@
+<p>Showing results for "<%= @search_param %>"</p>
+<% @results.each do |post| %>
+	<h1><%=link_to post.title, post_path(post.id)%></h1>
+	<p><%=post.body %></p>
+	<p>By <%= link_to post.user.username, user_path(post.user.id)%></p>
+<% end %>

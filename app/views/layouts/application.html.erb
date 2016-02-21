@@ -12,7 +12,8 @@
 		<%= link_to("logout", logout_path, method: :delete)  %>
 	<% else %>
 		<%= link_to("sign up", signup_path) %>
-	<% end %> </p>
+	<% end %> </p><br>
+<%= render :partial => "shared/searchbar" %>
 <%= yield %>
 
 </body>

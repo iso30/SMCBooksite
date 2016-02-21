@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+subjects = ["Accounting","Art","Biology","Buisiness","Chemistry","Communication","Computer Science","Econnomics","English","Graphic Design", "Health", "Journalism","Languages","Mathematics","Media Studies","Music","Nursing","Philosophy", "Photography","Physics","Political Science","Psychology","Religious Studies","Sociology","Other Sciences", "Other Arts", "Other"]
+num = 1
+subjects.each do |subject|
+	 u = User.create(username:"user#{num}",password:"user#{num}", email:"user#{num}@gmail.com")
+	Post.create(title:"post#{num}",body:"#{subject}#{num}",user_id:u.id, subject:subject)
+	num = num + 1
+end

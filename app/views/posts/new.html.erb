@@ -4,6 +4,8 @@
 	<%= form_for @post, url: posts_path, method: :post  do |f|%>
 		<%=f.text_field :title, :placeholder => "Enter a Title" %>
 		<%=f.text_area :body, :placeholder => "Enter your post" %>
+		<%= f.label "Subject:" %>
+		<%=f.select :subject, Post.all.map.collect{|p|[p.subject,p.subject]}%>
 		<%=f.hidden_field :user_id, :value => @current_user.id %>
 		<%=f.submit "Submit Post" %>
 	<% end %>
