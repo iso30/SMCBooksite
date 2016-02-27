@@ -1,8 +1,24 @@
-<h1>Edit your post</h1>
-<p><%= flash[:danger]%></p>
-<%= form_for @post, url: post_path, method: :patch do |f| %>
-	<%=f.text_field :title, :placeholder => "Enter a Title", :value => @post.title %>
-	<%=f.text_area :body, :placeholder => "Enter your post", :value => @post.body %>
-	<%=f.submit "Submit Post" %>
-<% end %>
+<div id="new-post">
+	<%= render :partial => "shared/no_search_header"%>
+	<div class="row">
+		<div id="post-banner">
+			<h2>Edit your post</h2>
+		</div>
+		<% if @current_user %>
+			<div class="form-controll col-md-5 col-md-offset-2">
+				<%= form_for @post, url: post_path, method: :patch do |f| %>
+					<%=f.text_field :title, :placeholder => "Enter a Title",:class => "form-control", :id=>"post-title",:value => @post.title %>
+					<%=f.text_area :body, :placeholder => "Include information about your book. Try to include the subject, professor,price ect. Make it so it is easily searchable.",:class => "form-control", :id=>"post-body", :value => @post.body%>
+					<%= f.label "Subject:" %>
+					<%=f.select :subject, Post.all.map.collect{|p|[p.subject,p.subject]}.uniq,:class => "form-control", :id=>"post-subject",:value => @post.subject%>
+					<%=f.hidden_field :user_id, :value => @current_user.id %>
+					<%=f.submit "Submit Post", :class=>"btn btn-primary form-control" %>
+				<% end %>
+			</div>
+		<% else %>
+			<p>You are not logged in click the link to log in</p>
+			<p><%= link_to "login", login_path %></p>
+		<% end %>
+	</div>
+</div>
 

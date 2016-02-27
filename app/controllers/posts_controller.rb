@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
   	@post = Post.new
+    @no_header= true
   end
 
   def create 
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     if user_permission?(@post.user.id)
+      @no_header = true;
       render 'edit'
     else
       head:forbidden

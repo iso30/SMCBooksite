@@ -1,6 +1,16 @@
-<p>Showing results for "<%= @search_param %>"</p>
-<% @results.each do |post| %>
-	<h1><%=link_to post.title, post_path(post.id)%></h1>
-	<p><%=post.body %></p>
-	<p>By <%= link_to post.user.username, user_path(post.user.id)%></p>
-<% end %>
+<div id="index-post" class="contailer-fluid">
+		<div class="row-fluid">
+			<div id="recentpost-banner">
+				<h2>Showing results for "<%= @search_param %>"</h2>
+			</div>
+		</div>
+		<div class="row-fluid col-md-6 col-md-offset-2">
+			<% @results.each do |post| %>
+				<dl id="posts">
+					<dt id="post-title"><%=link_to post.title, post_path(post.id)%></dt>
+					<dd id="post-body"><%=post.body%></dd>
+					<dd id="post-author">By <%= link_to post.user.username, user_path(post.user.id)%></dd>
+				</dl>
+			<% end %>
+		</div>
+</div>

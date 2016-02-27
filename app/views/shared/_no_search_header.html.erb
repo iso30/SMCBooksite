@@ -1,0 +1,17 @@
+
+<div class="container-fluid header">
+	<div class="row-fluid">
+		<div class="col-md-4">
+			<%= link_to "SMC Book Exchange", root_path, :id => "logo"%>
+		</div>
+		<div id="login_buttons" class="col-md-2 col-md-offset-6">
+			<% if @current_user %>
+				Hello, <%= link_to(@current_user.username,user_path(@current_user.id), :id=>"hello_name")%>!<br>
+				<%= link_to("Logout", logout_path, method: :delete, :class=> "btn btn-primary btn-sm")  %>
+			<% else %>
+				<%= link_to("Sign Up", signup_path, :class => "btn btn-primary btn-sm") %>
+				<%= link_to("Log In", login_path, :class => "btn btn-primary btn-sm") %>
+			<% end %>
+		</div>
+	</div>
+</div>

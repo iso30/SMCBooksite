@@ -1,11 +1,20 @@
-<%= form_for @user, url: users_path, method: :post  do |f|%>
-	<%= f.label "Username: " %>
-	<%= f.text_field :username %><br>
-	<%= f.label "Password" %>
-	<%= f.password_field :password_digest %><br>
-	<%= f.label "Email" %>
-	<%= f. text_field :email %><br>
-	<%= f.label "Show email?"%>
-	<%= f.check_box :show_email %><br>
-	<%= f.submit "Sign up" %>
-<% end %>
+<div class="signup">
+	<%= render :partial => "shared/no_search_header"%>
+	<div class="row">
+		<div class="form-group col-md-3 col-md-offset-4">
+			<%= form_for @user, url: users_path, method: :post  do |f|%>
+				<%= f.label "Username: " %>
+				<%= f.text_field :username, :class=> "form-control" %>
+				<%= f.label "Password" %>
+				<%= f.password_field :password_digest, :class=> "form-control" %>
+				<%= f.label "Email" %>
+				<%= f. text_field :email, :class=> "form-control" %>
+				<%= f.label "Show email?"%>
+				<%= f.check_box :show_email, :class=> "checkbox" %>
+				<%= f.submit "Sign up", :class=>"btn btn-default" %>
+			<% end %>
+			<p>Already have an account? <%= link_to "Login!", login_path%></p>
+		</div>
+	</div>
+</div>
+

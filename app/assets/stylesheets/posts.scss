@@ -1,3 +1,59 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#index-post{
+	.row-fluid{
+		#posts{
+			padding:5px;
+			padding-left:20px;
+			border:none;
+			border-bottom:solid;
+			border-width:1px;
+			padding-bottom:10px;
+			#post-title{
+				font-size:25px;
+			}
+			#post-body{
+				padding:10px;
+				padding-left:25px;
+			}
+			#post-author{
+				font-size:12px;
+			}
+		}
+		#create-post{
+			float:right;
+			margin-right:20px;
+		}
+		#recentpost-banner{
+			margin-left:20px;
+
+		}
+	}
+}
+textarea{
+	resize:none
+}
+#new-post{
+	#post-title{
+		margin-bottom:10px;
+	}
+	#post-body{
+		height: 200px;
+		margin-bottom:10px;
+	}
+	#post_subject{
+		margin-bottom:10px;
+	}
+	#post-banner{
+	margin-left: 30px;
+	}
+}
+#show-post{
+	#edit-btn{
+		width: 100px;
+	}
+	#delete-btn{
+		width: 100px;
+	}
+}
